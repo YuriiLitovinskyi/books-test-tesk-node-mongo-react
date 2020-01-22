@@ -58,6 +58,30 @@ app.delete('/:id', async (req, res) => {
     }
 });
 
+//PUT
+app.put('/:id', async(req, res) => {
+    const { bookName, genre, author, pubYear } = req.body;
+
+    try {
+        await Book.updateOne(
+            {_id: req.params.id},
+            {$set:
+                {
+                    bookName,
+                    genre,
+                    author,
+                    pubYear
+                }
+            },
+            {"upsert": false}
+        );
+        res.status(200).json({ msg: "Book was updated succesfully!" });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 // Serve static assets in production
 if(process.env.NODE_ENV === 'production') {
     // Set static folder

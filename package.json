@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/YuriiLitovinskyi/books-test-tesk-node-mongo-react#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.8.7"
   },
   "devDependencies": {
